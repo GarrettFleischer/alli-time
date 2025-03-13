@@ -31,7 +31,7 @@ export default function TaskTimer({
   const [editedName, setEditedName] = useState(task.name);
 
   useEffect(() => {
-    let intervalId: number | undefined;
+    let intervalId: NodeJS.Timeout | undefined;
 
     if (isRunning) {
       intervalId = setInterval(() => {
