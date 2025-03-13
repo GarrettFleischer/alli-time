@@ -182,6 +182,7 @@ export default function TaskTimer({
           aria-label={
             showTimeEntries ? "Hide time entries" : "Show time entries"
           }
+          title={showTimeEntries ? "Hide time entries" : "Show time entries"}
         >
           <span className="chevron-icon">{showTimeEntries ? "▲" : "▼"}</span>
         </button>

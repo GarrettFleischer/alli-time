@@ -14,18 +14,18 @@
 }
 
 :root {
-  --primary-color: #6366f1;
-  --primary-hover: #4f46e5;
-  --secondary-color: #f43f5e;
-  --secondary-hover: #e11d48;
-  --background-color: #f8fafc;
-  --card-background: #ffffff;
-  --text-color: #1e293b;
-  --text-light: #64748b;
-  --border-color: #e2e8f0;
-  --success-color: #10b981;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* Dark theme colors */
+  --primary-color: #818cf8;
+  --primary-hover: #6366f1;
+  --secondary-color: #f87171;
+  --secondary-hover: #ef4444;
+  --background-color: #1e293b;
+  --card-background: #0f172a;
+  --text-color: #e2e8f0;
+  --text-light: #94a3b8;
+  --border-color: #334155;
+  --success-color: #34d399;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -117,6 +117,8 @@ main {
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .task-input:focus {
@@ -158,8 +160,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 0.5rem;
+  align-items: flex-start;
+  padding: 0.8rem 0.5rem 0.5rem 0.5rem;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   background-color: var(--card-background);
@@ -201,6 +203,7 @@ main {
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .edit-name-input:focus {
@@ -225,7 +228,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .timer-display {
@@ -270,14 +273,15 @@ main {
 @media (max-width: 600px) {
   .task-timer {
     flex-direction: column;
-    gap: 0.8rem;
-    padding: 0.8rem 0.5rem;
+    gap: 0.5rem;
+    padding: 0.8rem 0.5rem 0.5rem 0.5rem;
     width: 100%;
   }
 
   .task-info {
     width: 100%;
     text-align: center;
+    margin-bottom: 0.3rem;
   }
 
   .task-stats {
@@ -287,6 +291,7 @@ main {
 
   .timer-controls {
     width: 100%;
+    margin-bottom: 0.2rem;
   }
 
   .add-task-form {
@@ -346,7 +351,7 @@ main {
   padding: 0.5rem;
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
-  background-color: #f8fafc;
+  background-color: var(--background-color);
   width: 100%;
   box-sizing: border-box;
 }
@@ -432,33 +437,43 @@ main {
 }
 
 .toggle-entries-button {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  position: static;
+  display: block;
+  width: 100%;
+  height: 1rem;
+  margin-top: 0.3rem;
   background-color: transparent;
-  color: var(--primary-color);
+  color: var(--text-color);
   border: none;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  border-radius: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   outline: none;
+  padding: 0;
 }
 
 .toggle-entries-button:hover {
-  background-color: rgba(99, 102, 241, 0.1);
+  color: var(--primary-color);
 }
 
 .toggle-entries-button:focus {
   outline: none;
+  box-shadow: none;
+}
+
+.toggle-entries-button:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .chevron-icon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
   line-height: 1;
 }
 
@@ -529,7 +544,8 @@ main {
   text-align: center;
   cursor: pointer;
   background-color: var(--background-color);
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  color: var(--text-color);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
   background-size: 16px 12px;
@@ -555,6 +571,7 @@ main {
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0.25rem 0;
   -moz-appearance: textfield; /* Firefox */
 }
@@ -647,4 +664,16 @@ main {
   .time-picker-actions button {
     padding: 0.5rem 1rem;
   }
+}
+
+/* General input styles for dark theme */
+input {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
 }
